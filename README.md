@@ -7,7 +7,7 @@
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-3B82F6.svg)](./LICENSE)
 [![Marzban](https://img.shields.io/badge/Marzban-compatible-8B5CF6.svg)](https://github.com/Gozargah/Marzban)
-[![PasarGuard](https://img.shields.io/badge/PasarGuard-compatible-06B6D4.svg)](#)
+[![PasarGuard](https://img.shields.io/badge/PasarGuard-compatible-06B6D4.svg)](https://github.com/PasarGuard/panel)
 [![React](https://img.shields.io/badge/React-18-3B82F6.svg)](https://react.dev)
 [![Vite](https://img.shields.io/badge/Vite-5-8B5CF6.svg)](https://vitejs.dev)
 
