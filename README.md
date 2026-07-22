@@ -1,11 +1,11 @@
-::: {align="center"}
+<div align="center">
 # 🌌 Orbit Sub
 
 **قالب مدرن صفحه اشتراک برای مرزبان و پاسارگاد**\
 **Modern Glassmorphism Subscription Template for Marzban & Pasargad**
 
 🇮🇷 **[فارسی](#-فارسی)** • 🇺🇸 **[English](#-english)**
-:::
+</div>
 
 ------------------------------------------------------------------------
 
