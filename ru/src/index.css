@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  background: #09090b;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(139, 92, 246, 0.35);
+}
+
+/* thin, unobtrusive scrollbar to match the dark surface */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+/* visible focus ring for keyboard users, everywhere */
+:focus-visible {
+  outline: 2px solid #8b5cf6;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Config list rows fade + slide in on mount, staggered via inline
+   animation-delay in ConfigList.jsx */
+@keyframes list-item-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-list-in {
+  animation: list-item-in 380ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes bg-burst {
+  0% {
+    transform: translate(-50%, -50%) scale(0.15);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+}
+.bg-burst {
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+  will-change: transform, opacity;
+  animation: bg-burst 1100ms cubic-bezier(0.2, 0.6, 0.3, 1) forwards;
+}
+
+/* Copy/QR button success feedback - see IconActionButton.jsx */
+@keyframes icon-pop {
+  0% { transform: scale(0.5); opacity: 0; }
+  60% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+/* Twemoji flag/emoji images - sized via the --twemoji-size custom
+   property set on the wrapping span in components/Emoji.jsx */
+.twemoji-emoji-inline {
+  width: var(--twemoji-size, 20px);
+  height: var(--twemoji-size, 20px);
+  vertical-align: -3px;
+  display: inline-block;
+}

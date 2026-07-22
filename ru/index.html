@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ru" dir="ltr">
+  <!-- {% raw %} -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <title>Панель подписки</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+  <!-- {% endraw %} -->
+
+    <!--
+      Marzban renders this template with Jinja2 on the server (see
+      app/templates/subscription/index.html in the Marzban source for
+      the pattern this mirrors). The block below is inert JSON, not JS,
+      so if Jinja never touches it (e.g. local dev via `npm run dev`)
+      the browser just ignores it and the app falls back to mock data.
+      When Marzban serves this file as SUBSCRIPTION_PAGE_TEMPLATE, the
+      Jinja print and loop tags below get replaced with the real user
+      object. Do not write literal Jinja delimiters in comments here -
+      Jinja scans the whole file, including inside HTML comments. The
+      built CSS/JS above and below this block are wrapped in Jinja raw
+      tags, since minified code can accidentally contain sequences that
+      look like Jinja delimiters and break the parser.
+    -->
+    <script id="marzban-data" type="application/json">
+    {
+      "username": "{{ user.username }}",
+      "status": "{{ user.status.value }}",
+      "dataLimit": {{ user.data_limit if user.data_limit else 'null' }},
+      "usedTraffic": {{ user.used_traffic if user.used_traffic else 0 }},
+      "expire": {{ user.expire if user.expire else 'null' }},
+      "subscriptionUrl": "{{ (user.subscription_url if user.subscription_url is defined else '') | safe }}",
+      "links": [
+        {% for link in user.links %}
+        "{{ link | safe }}"{{ "," if not loop.last }}
+        {% endfor %}
+      ]
+    }
+    </script>
+
+  <!-- {% raw %} -->
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+  <!-- {% endraw %} -->
+
