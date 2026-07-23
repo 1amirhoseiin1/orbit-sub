@@ -74,7 +74,7 @@ export default function StatusHeader({ user, expiresAt }) {
               color: isActive ? '#4ADE80' : '#F87171',
               border: '1px solid',
               borderColor: isActive ? 'rgba(34,197,94,0.3)' : 'rgba(239,68,68,0.3)',
-              '& .MuiChip-icon': { ml: 1, mr: -0.5 }
+              '& .MuiChip-icon': { marginInlineStart: '8px', marginInlineEnd: '-2px' }
             }}
           />
         </div>
